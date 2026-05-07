@@ -2,39 +2,37 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.0'
+        classpath 'com.android.tools.build:gradle:8.7.0'
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 30
+    namespace "com.shokimble.rngoogleplaygameservices"
+    compileSdk 35
 
     defaultConfig {
-        minSdkVersion 16
-        versionCode 2
-        versionName "1.1"
+        minSdk 24
+        versionCode 3
+        versionName "2.0"
     }
 
-    lintOptions {
+    lint {
         abortOnError false
     }
 }
 
 repositories {
+    google()
     mavenCentral()
-    maven {
-     url 'https://maven.google.com'
-    }
 }
 
 dependencies {
-    implementation 'com.google.android.gms:play-services-games:20.0.1'
-    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    implementation 'com.google.android.gms:play-services-games-v2:20.1.2'
     implementation 'com.facebook.react:react-native:+'
 }

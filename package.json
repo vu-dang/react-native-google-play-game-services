@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-google-play-game-services",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Google Play Game Services bindings for React Native",
   "main": "index.js",
   "repository": {
@@ -24,8 +24,8 @@
   "author": "Kimble Young",
   "license": "MIT",
   "peerDependencies": {
-    "react": ">=15.4.0 || >=16.x",
-    "react-native": ">=0.40"
+    "react": ">=18.0.0",
+    "react-native": ">=0.71.0"
   }
 }
 
