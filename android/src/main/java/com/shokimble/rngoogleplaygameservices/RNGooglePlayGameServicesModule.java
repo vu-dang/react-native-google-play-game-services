@@ -183,6 +183,23 @@ public class RNGooglePlayGameServicesModule extends ReactContextBaseJavaModule {
   /////////////////////////////////////////////////////////////////////////////
 
   @ReactMethod
+  public void getPlayerName(final Promise promise) {
+    if (mPlayersClient == null) {
+      promise.reject("NOT_SIGNED_IN", "Please sign in first");
+      return;
+    }
+    mPlayersClient.getCurrentPlayer()
+      .addOnSuccessListener(player -> {
+        promise.resolve(player.getDisplayName());
+      })
+      .addOnFailureListener(e -> {
+        promise.reject("GET_NAME_FAILED", "Get player name failed: " + e.getMessage());
+      });
+  }
+
+  /////////////////////////////////////////////////////////////////////////////
+
+  @ReactMethod
   public void unlockAchievement(String id, final Promise promise) {
     if (mAchievementsClient == null) {
       promise.reject("Please sign in first");
